@@ -15,5 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 //后台首页
-Route::get('admin','AdminController@index');
+Route::get('/admin','AdminController@index');
 
+//用户添加
+Route::controller('/admin/user','UserController');
+//Route::get('/admin/user/getAdd','AdminController@index');
