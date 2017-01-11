@@ -300,7 +300,7 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    <form id="demo-form2" action="{{URL::asset('/')}}admin/user/list" data-parsley-validate="" method="get" class="form-horizontal form-label-left" novalidate="">
+                    <form id="demo-form2" action="{{URL::asset('/')}}admin/user/adduser" data-parsley-validate="" method="get" class="form-horizontal form-label-left" novalidate="">
                         {{csrf_field()}}
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">用户名<span class="required red">*</span>
@@ -311,31 +311,31 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">昵称<span class="required red">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nikename">昵称<span class="required red">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="nickname" name="nickname" required="required" class="form-control col-md-7 col-xs-12">
+                                <input type="text" value="{{old('nikename')}}" id="nikename" name="nikename" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">密码<span class="required red">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">密码<span class="required red">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="password" id="password" name="password" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">确认密码<span class="required red">*</span>
+                            <label for="repassword" class="control-label col-md-3 col-sm-3 col-xs-12">确认密码<span class="required red">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="repassword" class="form-control col-md-7 col-xs-12" type="password" name="repassword" required="required same:password">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">邮箱<span class="required red">*</span>
+                            <label for="email" class="control-label col-md-3 col-sm-3 col-xs-12">邮箱<span class="required red">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="email" class="form-control col-md-7 col-xs-12" type="text" name="email" required="required email">
+                                <input id="email" value="{{old('email')}}" class="form-control col-md-7 col-xs-12" type="text" name="email" required="required email">
                             </div>
                         </div>
 
@@ -344,8 +344,8 @@
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="select2_single form-control select2-hidden-accessible" name="role" tabindex="-1" aria-hidden="true">
-                                    <option></option>
-                                    <option value="AR">Arkansas</option>
+                                    <option>请选择</option>
+                                    <option value="AR">@if(old('role'))? {{old('role')}} : 'Arkansas' @endif</option>
                                     <option value="IL">Illinois</option>
                                     <option value="IA">Iowa</option>
                                     <option value="KS">Kansas</option>
@@ -358,10 +358,7 @@
                                     <option value="SD">South Dakota</option>
                                     <option value="TX">Texas</option>
                                 </select>
-                        <span class="select2 select2-container select2-container--default select2-container--above select2-container--focus" dir="ltr" style="width: 550px;">
-                            <span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-labelledby="select2-dqqk-container">
-                               <span class="select2-selection__rendered" id="select2-dqqk-container"><span class="select2-selection__placeholder">Select a state</span></span><span class="select2-selection__arrow" role="presentation">
-                                 <b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
                             </div>
                         </div>
                         <div class="ln_solid"></div>
